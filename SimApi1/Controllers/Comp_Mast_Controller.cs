@@ -21,12 +21,12 @@ namespace SimApi1.Controllers
         {
             return Ok(dbcontext.Comp_Mast.ToList());
         }
-
         [HttpPost]
-        //[FromBody, comp_mast]
-        public IActionResult NewComponent(Component_Master comp_mast)
+        public void AddNewComponent(Component_Master comp_master)
         {
-
+            dbcontext.Comp_Mast.Add(comp_master);
+            dbcontext.SaveChanges();
         }
+
     }
 }
